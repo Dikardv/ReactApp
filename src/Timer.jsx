@@ -31,9 +31,7 @@ export default function GetTimer() {
     if (String(seconds).match(xten)) {
       setSecwr(" Секунд ");
     }
-    if (String(seconds).match(xtwotofourone)) {
-      setSecwr(" Секунды:т ");
-    }
+
 
     setObj([days, hours, minutes, seconds]);
   }
