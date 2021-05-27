@@ -32,6 +32,7 @@ export default function GetTimer() {
     if (String(seconds).match(xten)) {
       setSecwr(" Секунд ");
     }
+<<<<<<< HEAD
     if (String(seconds).length === 1 && String(seconds).match(xtwotofourone)) {
       setSecwr(" Секунды ");
     }
@@ -110,6 +111,9 @@ export default function GetTimer() {
     if (days === 0) {
       setDaywr(" Дней ");
     }
+=======
+
+>>>>>>> 67b0a6157356e3d0e830ff21f18af3bb3e934c7e
 
     setObj([days, hours, minutes, seconds]);
   }
