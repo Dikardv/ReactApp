@@ -56,7 +56,7 @@ export default function GetTimer() {
     if (String(minutes).match(xten)) {
       setMinuteswr(" Минут ");
     }
-    if (String(minutes).length === 1 && String(seconds).match(xtwotofourone)) {
+    if (String(minutes).length === 1 && String(minutes).match(xtwotofourone)) {
       setMinuteswr(" Минуты ");
     }
     if (minutes === 1) {
@@ -79,7 +79,7 @@ export default function GetTimer() {
     if (String(hours).match(xten)) {
       setHourwr(" Часов ");
     }
-    if (String(hours).length === 1 && String(seconds).match(xtwotofourone)) {
+    if (String(hours).length === 1 && String(hours).match(xtwotofourone)) {
       setHourwr(" Часа ");
     }
     if (hours === 1) {
@@ -102,7 +102,7 @@ export default function GetTimer() {
     if (String(days).match(xten)) {
       setDaywr(" Дней ");
     }
-    if (String(days).length === 1 && String(seconds).match(xtwotofourone)) {
+    if (String(days).length === 1 && String(days).match(xtwotofourone)) {
       setDaywr(" Дня ");
     }
     if (days === 1) {
