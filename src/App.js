@@ -5,10 +5,19 @@ import GetTimer from "./Timer.jsx";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <GetTimer />
-      </header>
+      <div className="overlay">
+        <h1 className="headerclass">Андрей + Екатерина</h1>
+        <GetTimer className="timer" />
+      </div>
+      <video
+        loop
+        muted
+        autoPlay
+        poster="media/videoframe.png"
+        className="fullscreenbg video"
+      >
+        <source src="bg.mp4" type="video/mp4" />
+      </video>
     </div>
   );
 }
