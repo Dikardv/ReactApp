@@ -111,10 +111,7 @@ export default function GetTimer() {
     if (days === 0) {
       setDaywr(" Дней ");
     }
-=======
-
->>>>>>> 67b0a6157356e3d0e830ff21f18af3bb3e934c7e
-
+    
     setObj([days, hours, minutes, seconds]);
   }
 
