@@ -183,7 +183,7 @@ export default function GetTimer() {
         loop
         muted
         autoPlay
-        poster="1055.jpg"
+        poster="123.jpg"
         className="fullscreenbg video"
       >
         <source src="bg2.mp4" type="video/mp4" />
