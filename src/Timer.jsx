@@ -2,10 +2,22 @@ import { useState, useEffect } from "react";
 
 export default function GetTimer() {
   const [obj, setObj] = useState(["", "", "", ""]);
-  const [daywr, setDaywr] = useState(" Дней ");
-  const [hourwr, setHourwr] = useState(" Часов ");
-  const [minuteswr, setMinuteswr] = useState(" Минут ");
-  const [secwr, setSecwr] = useState(" Секунд ");
+  const [daywr, setDaywr] = useState(" ");
+  const [hourwr, setHourwr] = useState(" ");
+  const [minuteswr, setMinuteswr] = useState(" ");
+  const [secwr, setSecwr] = useState(" ");
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
+  const [getBg, setBg] = useState(<source src="bg.mp4" type="video/mp4" />);
+
+  function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height,
+    };
+  }
 
   function count() {
     var t = Date.parse(new Date("2021-06-26")) - Date.parse(new Date());
@@ -14,124 +26,168 @@ export default function GetTimer() {
     var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
     var days = Math.floor(t / (1000 * 60 * 60 * 24));
 
+    let secTemp = "с";
+    let minTemp = "м";
+    let hourTemp = "ч";
+    let dayTemp = "дн";
     const xone = /\d1/;
     const xtwotofour = /\d[234]/;
     const regexd = /\d./;
     const xten = /1\d/;
-    const xtwotofourone = /\n/;
+
     //секунды
     if (String(seconds).match(regexd)) {
-      setSecwr(" Секунд ");
+      secTemp = " Секунд ";
     }
     if (String(seconds).match(xone)) {
-      setSecwr(" Секунда ");
+      secTemp = " Секунда ";
     }
     if (String(seconds).match(xtwotofour)) {
-      setSecwr(" Секунды ");
+      secTemp = " Секунды ";
     }
     if (String(seconds).match(xten)) {
-      setSecwr(" Секунд ");
+      secTemp = " Секунд ";
     }
-
-    if (String(seconds).length === 1 && String(seconds).match(xtwotofourone)) {
-      setSecwr(" Секунды ");
+    if (seconds < 5 && seconds > 1) {
+      secTemp = " Секунды ";
+    }
+    if (seconds < 10 && seconds > 4) {
+      secTemp = " Секунд ";
     }
     if (seconds === 1) {
-      setSecwr(" Секунда ");
+      secTemp = " Секунда ";
     }
     if (seconds === 0) {
-      setSecwr(" Секунд ");
+      secTemp = " Секунд ";
     }
+    setSecwr(secTemp);
 
     //минуты
     if (String(minutes).match(regexd)) {
-      setMinuteswr(" Минут ");
+      minTemp = " Минут ";
     }
     if (String(minutes).match(xone)) {
-      setMinuteswr(" Минута ");
+      minTemp = " Минута ";
     }
     if (String(minutes).match(xtwotofour)) {
-      setMinuteswr(" Минуты ");
+      minTemp = " Минуты ";
     }
     if (String(minutes).match(xten)) {
-      setMinuteswr(" Минут ");
+      minTemp = " Минут ";
     }
-    if (String(minutes).length === 1 && String(minutes).match(xtwotofourone)) {
-      setMinuteswr(" Минуты ");
+    if (minutes < 5 && minutes > 1) {
+      minTemp = " Минуты ";
+    }
+    if (minutes < 10 && minutes > 4) {
+      minTemp = " Минут ";
     }
     if (minutes === 1) {
-      setMinuteswr(" Минута ");
+      minTemp = " Минута ";
     }
     if (minutes === 0) {
-      setMinuteswr(" Минут ");
+      minTemp = " Минут ";
     }
-
+    setMinuteswr(minTemp);
     //часы
     if (String(hours).match(regexd)) {
-      setHourwr(" Часов ");
+      hourTemp = " Часов ";
     }
     if (String(hours).match(xone)) {
-      setHourwr(" Час ");
+      hourTemp = " Час ";
     }
     if (String(hours).match(xtwotofour)) {
-      setHourwr(" Часа ");
+      hourTemp = " Часа ";
     }
     if (String(hours).match(xten)) {
-      setHourwr(" Часов ");
+      hourTemp = " Часов ";
     }
-    if (String(hours).length === 1 && String(hours).match(xtwotofourone)) {
-      setHourwr(" Часа ");
+    if (hours < 5 && hours > 1) {
+      hourTemp = " Часа ";
+    }
+    if (hours < 10 && hours > 4) {
+      hourTemp = " Часов ";
     }
     if (hours === 1) {
-      setHourwr(" Час ");
+      hourTemp = " Час ";
     }
     if (hours === 0) {
-      setHourwr(" Часов ");
+      hourTemp = " Часов ";
     }
-
+    setHourwr(hourTemp);
     //дни
     if (String(days).match(regexd)) {
-      setDaywr(" Дней ");
-    }
-    if (String(days).match(xone)) {
-      setDaywr(" День ");
-    }
-    if (String(days).match(xtwotofour)) {
-      setDaywr(" Дня ");
-    }
-    if (String(days).match(xten)) {
-      setDaywr(" Дней ");
-    }
-    if (String(days).length === 1 && String(days).match(xtwotofourone)) {
-      setDaywr(" Дня ");
-    }
-    if (days === 1) {
-      setDaywr(" День ");
-    }
-    if (days === 0) {
-      setDaywr(" Дней ");
+      dayTemp = " Дней ";
     }
 
+    if (String(days).match(xone)) {
+      dayTemp = " День ";
+    }
+    if (String(days).match(xtwotofour)) {
+      dayTemp = " Дня ";
+    }
+    if (String(days).match(xten)) {
+      dayTemp = " Дней ";
+    }
+    if (days < 10 && days > 4) {
+      dayTemp = " Дней ";
+    }
+    if (days < 5 && days > 1) {
+      dayTemp = " Дня ";
+    }
+
+    if (days === 1) {
+      dayTemp = " День ";
+    }
+    if (days === 0) {
+      dayTemp = " Дней ";
+    }
+    setDaywr(dayTemp);
     setObj([days, hours, minutes, seconds]);
   }
 
   useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+    window.addEventListener("resize", handleResize);
+
     setInterval(() => {
       count();
     }, 1000);
-    //return () => clearInterval(interval);
+
+    return () => {
+      clearInterval();
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
-    <div className="timer">
-      <h1 className="number">{obj[0]}</h1>
-      <p className="timeinfo">{daywr}</p>
-      <h1 className="number">{obj[1]}</h1>
-      <p className="timeinfo">{hourwr}</p>
-      <h1 className="number">{obj[2]}</h1>
-      <p className="timeinfo">{minuteswr}</p>
-      <h1 className="number">{obj[3]}</h1>
-      <p className="timeinfo">{secwr}</p>
+    <div>
+      <div className="overlay">
+        <div
+          className="timer"
+          style={{ fontSize: windowDimensions.width / 25 }}
+        >
+          <h1 className="headerclass">Андрей + Екатерина</h1>
+          <h1 className="number">{obj[0]}</h1>
+          <p className="timeinfo">{daywr}</p>
+          <h1 className="number">{obj[1]}</h1>
+          <p className="timeinfo">{hourwr}</p>
+          <h1 className="number">{obj[2]}</h1>
+          <p className="timeinfo">{minuteswr}</p>
+          <h1 className="number">{obj[3]}</h1>
+          <p className="timeinfo">{secwr}</p>
+        </div>
+      </div>
+      <video
+        loop
+        muted
+        autoPlay
+        poster="1055.jpg"
+        className="fullscreenbg video"
+      >
+        <source src="bg.mp4" type="video/mp4" />
+      </video>
     </div>
   );
 }
