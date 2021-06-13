@@ -20,7 +20,7 @@ export default function GetTimer() {
   }
 
   function count() {
-    var dat = new Date(2021, 5, 13, 18, 0, 0, 0);
+    var dat = new Date(2021, 5, 26, 9, 30, 0, 0);
     var ta = Date.parse(new Date(dat)) - Date.parse(new Date());
     var t = Math.abs(ta);
     var seconds = Math.floor((t / 1000) % 60);
@@ -168,10 +168,8 @@ export default function GetTimer() {
   return (
     <div>
       <div className="overlay">
-        <div
-          className="timer"
-          style={{ fontSize: windowDimensions.width / 25 }}
-        >
+        <img src="kkk.png" alt="" srcset="" />
+        <div className="timer">
           <h1 className="headerclass">Андрей + Екатерина</h1>
           <h4>{wed}</h4>
           <h1 className="number">{obj[0]}</h1>

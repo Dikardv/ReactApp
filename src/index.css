@@ -1,9 +1,103 @@
+@font-face {
+  font-family: "MyFont";
+  src: local("MyFont"), url(./mf2.ttf) format("truetype");
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    sans-serif; */
+  font-size: calc(0.7em + 2vw);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #282c34;
+  min-width: 360px;
+}
+*,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+* {
+}
+.App {
+  overflow: hidden;
+  z-index: -100;
+  position: relative;
+  padding-top: 45%;
+  text-align: center;
+  min-width: 320;
+  min-height: 320;
+  width: 100%;
+  height: 1055px;
+}
+video {
+  position: absolute;
+  z-index: -99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  -webkit-background-size: center/cover;
+  background-size: center/cover;
+  object-fit: center/cover;
+}
+.overlay {
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50%;
+  z-index: 4;
+}
+.timeinfo {
+  display: inline-block;
+  color: white;
+  font-family: "MyFont";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-style: normal;
+  padding-right: 1%;
+  padding-left: 1%;
+  text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.55);
+}
+.number {
+  color: white;
+  display: inline-block;
+  font-family: "MyFont";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-style: normal;
+  text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.55);
+}
+.headerclass {
+  margin-top: 10%;
+  margin-bottom: 1%;
+  color: white;
+  font-family: "MyFont";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-style: normal;
+  text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.55);
+}
+
+h4 {
+  font-family: "MyFont";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-style: normal;
+  text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.55);
+}
+
+img {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 50%;
+  margin-left: -25%;
+  filter: opacity(0.3);
 }

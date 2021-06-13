@@ -1,4 +1,3 @@
-import "./App.css";
 import GetTimer from "./Timer.jsx";
 
 function App() {
