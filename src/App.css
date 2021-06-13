@@ -41,13 +41,38 @@ video {
 .timeinfo {
   display: inline-block;
   color: white;
+  font-family: "MyFont";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-style: normal;
+  padding-right: 1%;
+  padding-left: 1%;
 }
 .number {
   color: white;
   display: inline-block;
+  font-family: "MyFont";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-style: normal;
 }
 .headerclass {
   margin-top: 10%;
   margin-bottom: 1%;
   color: white;
+  font-family: "MyFont";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MyFont";
+  src: local("MyFont"), url(./mf2.ttf) format("truetype");
+}
+
+h4 {
+  font-family: "MyFont";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-style: normal;
 }

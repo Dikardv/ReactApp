@@ -6,10 +6,10 @@ export default function GetTimer() {
   const [hourwr, setHourwr] = useState(" ");
   const [minuteswr, setMinuteswr] = useState(" ");
   const [secwr, setSecwr] = useState(" ");
+  const [wed, setWed] = useState(" ");
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );
-  const [getBg, setBg] = useState(<source src="bg.mp4" type="video/mp4" />);
 
   function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -20,7 +20,9 @@ export default function GetTimer() {
   }
 
   function count() {
-    var t = Date.parse(new Date("2021-06-26")) - Date.parse(new Date());
+    var dat = new Date(2021, 5, 13, 18, 0, 0, 0);
+    var ta = Date.parse(new Date(dat)) - Date.parse(new Date());
+    var t = Math.abs(ta);
     var seconds = Math.floor((t / 1000) % 60);
     var minutes = Math.floor((t / 1000 / 60) % 60);
     var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
@@ -143,6 +145,8 @@ export default function GetTimer() {
     }
     setDaywr(dayTemp);
     setObj([days, hours, minutes, seconds]);
+
+    ta < 0 ? setWed("мы женаты уже") : setWed("скоро свадьба");
   }
 
   useEffect(() => {
@@ -169,6 +173,7 @@ export default function GetTimer() {
           style={{ fontSize: windowDimensions.width / 25 }}
         >
           <h1 className="headerclass">Андрей + Екатерина</h1>
+          <h4>{wed}</h4>
           <h1 className="number">{obj[0]}</h1>
           <p className="timeinfo">{daywr}</p>
           <h1 className="number">{obj[1]}</h1>
